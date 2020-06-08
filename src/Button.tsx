@@ -1,6 +1,4 @@
-'use strict';
-
-import React, { Component } from 'react';
+import React, {PureComponent} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -8,41 +6,39 @@ import {
   StyleSheet,
   ActivityIndicator,
   TouchableNativeFeedback,
-  Platform
+  Platform,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
 } from 'react-native';
-import PropTypes from 'prop-types';
-import isEqual from 'lodash.isequal';
 
-class Button extends Component {
-  static propTypes = {
-    textStyle: Text.propTypes.style,
-    disabledStyle: Text.propTypes.style,
-    children: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node,
-      PropTypes.element
-    ]),
-    testID: PropTypes.string,
-    accessibilityLabel: PropTypes.string,
-    activeOpacity: PropTypes.number,
-    allowFontScaling: PropTypes.bool,
-    isLoading: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    activityIndicatorColor: PropTypes.string,
-    delayLongPress: PropTypes.number,
-    delayPressIn: PropTypes.number,
-    delayPressOut: PropTypes.number,
-    onPress: PropTypes.func,
-    onLongPress: PropTypes.func,
-    onPressIn: PropTypes.func,
-    onPressOut: PropTypes.func,
-    background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
-  }
+type Props = {
+  textStyle: StyleProp<TextStyle>;
+  disabledStyle: StyleProp<TextStyle>;
+  children: React.ReactChildren;
+  testID: string;
+  accessibilityLabel: string;
+  activeOpacity: number;
+  allowFontScaling: boolean;
+  isLoading: boolean;
+  isDisabled: boolean;
+  activityIndicatorColor: string;
+  delayLongPress: number;
+  delayPressIn: number;
+  delayPressOut: number;
+  onPress: () => void;
+  onLongPress: () => void;
+  onPressIn: () => void;
+  onPressOut: () => void;
+  style: StyleProp<ViewStyle>;
+  background: any;
+};
 
-  static isAndroid = (Platform.OS === 'android')
+class Button extends PureComponent<Props> {
+  static isAndroid = Platform.OS === 'android';
 
   _renderChildren() {
-    let childElements = [];
+    let childElements: React.ReactNode[] = [];
     React.Children.forEach(this.props.children, (item) => {
       if (typeof item === 'string' || typeof item === 'number') {
         const element = (
@@ -58,14 +54,7 @@ class Button extends Component {
         childElements.push(item);
       }
     });
-    return (childElements);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (!isEqual(nextProps, this.props)) {
-      return true;
-    }
-    return false;
+    return childElements;
   }
 
   _renderInnerText() {
@@ -73,7 +62,7 @@ class Button extends Component {
       return (
         <ActivityIndicator
           animating={true}
-          size='small'
+          size="small"
           style={styles.spinner}
           color={this.props.activityIndicatorColor || 'black'}
         />
@@ -85,7 +74,12 @@ class Button extends Component {
   render() {
     if (this.props.isDisabled === true || this.props.isLoading === true) {
       return (
-        <View style={[styles.button, this.props.style, (this.props.disabledStyle || styles.opacity)]}>
+        <View
+          style={[
+            styles.button,
+            this.props.style,
+            this.props.disabledStyle || styles.opacity,
+          ]}>
           {this._renderInnerText()}
         </View>
       );
@@ -105,7 +99,9 @@ class Button extends Component {
     };
     if (Button.isAndroid) {
       touchableProps = Object.assign(touchableProps, {
-        background: this.props.background || TouchableNativeFeedback.SelectableBackground()
+        background:
+          this.props.background ||
+          TouchableNativeFeedback.SelectableBackground(),
       });
       return (
         <TouchableNativeFeedback {...touchableProps}>
@@ -113,10 +109,11 @@ class Button extends Component {
             {this._renderInnerText()}
           </View>
         </TouchableNativeFeedback>
-      )
+      );
     } else {
       return (
-        <TouchableOpacity {...touchableProps}
+        <TouchableOpacity
+          {...touchableProps}
           style={[styles.button, this.props.style]}>
           {this._renderInnerText()}
         </TouchableOpacity>
@@ -137,7 +134,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textButton: {
-    flex: 1,
     fontSize: 18,
     textAlign: 'center',
     backgroundColor: 'transparent',
@@ -150,4 +146,4 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = Button;
+export default Button;

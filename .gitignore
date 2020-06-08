@@ -33,3 +33,7 @@ coverage/
 node_modules/*
 FacebookLogin.xcodeproj/xcuserdata/**/*
 FacebookLogin.xcodeproj/project.xcworkspace/**/*
+
+yarn-error.log
+
+dist

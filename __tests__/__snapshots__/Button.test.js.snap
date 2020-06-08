@@ -2,13 +2,9 @@
 
 exports[`Button Renders 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  onLayout={undefined}
+  focusable={false}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -28,18 +24,12 @@ exports[`Button Renders 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
           "backgroundColor": "transparent",
-          "flex": 1,
           "fontSize": 18,
           "textAlign": "center",
         },
@@ -74,14 +64,10 @@ exports[`Button Renders disabled 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
           "backgroundColor": "transparent",
-          "flex": 1,
           "fontSize": 18,
           "textAlign": "center",
         },
@@ -131,13 +117,9 @@ exports[`Button Renders loading 1`] = `
 
 exports[`Button Renders with a inner View 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  onLayout={undefined}
+  focusable={false}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -157,8 +139,6 @@ exports[`Button Renders with a inner View 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <View />
 </View>
@@ -166,13 +146,9 @@ exports[`Button Renders with a inner View 1`] = `
 
 exports[`Button Should contain children 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  onLayout={undefined}
+  focusable={false}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -192,18 +168,12 @@ exports[`Button Should contain children 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
           "backgroundColor": "transparent",
-          "flex": 1,
           "fontSize": 18,
           "textAlign": "center",
         },
@@ -218,13 +188,9 @@ exports[`Button Should contain children 1`] = `
 
 exports[`Button Should react to the onPress event 1`] = `
 <View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
   accessible={true}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  onLayout={undefined}
+  focusable={true}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -244,18 +210,12 @@ exports[`Button Should react to the onPress event 1`] = `
       "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
           "backgroundColor": "transparent",
-          "flex": 1,
           "fontSize": 18,
           "textAlign": "center",
         },
