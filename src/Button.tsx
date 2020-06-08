@@ -12,29 +12,29 @@ import {
   ViewStyle,
 } from 'react-native';
 
-type Props = {
-  textStyle: StyleProp<TextStyle>;
-  disabledStyle: StyleProp<TextStyle>;
-  children: React.ReactChildren;
-  testID: string;
-  accessibilityLabel: string;
-  activeOpacity: number;
-  allowFontScaling: boolean;
-  isLoading: boolean;
-  isDisabled: boolean;
-  activityIndicatorColor: string;
-  delayLongPress: number;
-  delayPressIn: number;
-  delayPressOut: number;
-  onPress: () => void;
-  onLongPress: () => void;
-  onPressIn: () => void;
-  onPressOut: () => void;
-  style: StyleProp<ViewStyle>;
-  background: any;
+export type ButtonProps = {
+  textStyle?: StyleProp<TextStyle>;
+  disabledStyle?: StyleProp<TextStyle>;
+  children?: React.ReactNode;
+  testID?: string;
+  accessibilityLabel?: string;
+  activeOpacity?: number;
+  allowFontScaling?: boolean;
+  isLoading?: boolean;
+  isDisabled?: boolean;
+  activityIndicatorColor?: string;
+  delayLongPress?: number;
+  delayPressIn?: number;
+  delayPressOut?: number;
+  onPress?: () => void;
+  onLongPress?: () => void;
+  onPressIn?: () => void;
+  onPressOut?: () => void;
+  style?: StyleProp<ViewStyle>;
+  background?: any;
 };
 
-class Button extends PureComponent<Props> {
+class Button extends PureComponent<ButtonProps> {
   static isAndroid = Platform.OS === 'android';
 
   _renderChildren() {
